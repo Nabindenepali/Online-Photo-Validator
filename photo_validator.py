@@ -1,5 +1,6 @@
 import argparse
 import cv2
+import blur_check
 
 def main():
 	ap = argparse.ArgumentParser()
@@ -10,12 +11,16 @@ def main():
 	imgPath = args['image']
 
 	# Load the image in color
-	img = cv2.imread(imgPath, cv2.IMREAD_COLOR)
+	img = cv2.imread(imgPath)
+
+	isblur = blur_check.variance_of_laplacian(img)
+
+	print("blurness", isblur)
 
 	# Display the imported image
-	cv2.imshow('Application Photo', img)
-	cv2.waitKey(0)
-	cv2.destroyAllWindows()
+	# cv2.imshow('Application Photo', img)
+	# cv2.waitKey(0)
+	# cv2.destroyAllWindows()
 
 if __name__ == '__main__':
 	main()
