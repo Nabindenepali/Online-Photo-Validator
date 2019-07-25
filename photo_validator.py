@@ -3,6 +3,7 @@ import argparse
 import cv2
 
 import file_format_check
+import file_size_check
 import blur_check
 
 def main():
@@ -23,6 +24,13 @@ def main():
 	print("File format check: " + ('Passed' if is_file_format_valid else 'Failed'))
 
 	if not is_file_format_valid:
+		exit()
+
+	# Check image file size
+	is_file_size_valid = file_size_check.check_image(imgPath)
+	print("File size check: " + ('Passed' if is_file_format_valid else 'Failed'))
+
+	if not is_file_size_valid:
 		exit()
 
 	# Load the image in color
