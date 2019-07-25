@@ -13,14 +13,14 @@ def main():
 	# Load the image in color
 	img = cv2.imread(imgPath)
 
+	# Check image for blurness
 	isblur = blur_check.variance_of_laplacian(img)
-
-	print("blurness", isblur)
+	print("Blurness check: " + 'Passed' if not isblur else 'Failed')
 
 	# Display the imported image
-	# cv2.imshow('Application Photo', img)
-	# cv2.waitKey(0)
-	# cv2.destroyAllWindows()
+	cv2.imshow('Application Photo', img)
+	cv2.waitKey(0)
+	cv2.destroyAllWindows()
 
 if __name__ == '__main__':
 	main()
