@@ -1,0 +1,5 @@
+1. File fromat check
+2. File size check
+3. Background check
+4. Symmetry check 
+5. Focus check (Done)

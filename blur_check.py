@@ -1,6 +1,6 @@
 import cv2
 
-def variance_of_laplacian(image):
+def check_image(image):
     gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
 
     # compute the Laplacian of the image and then return the focus
