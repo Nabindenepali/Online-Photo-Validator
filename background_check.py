@@ -28,9 +28,9 @@ def background_check(image):
     std_g = np.std(pixels_of_g)
     std_b = np.std(pixels_of_b)
 
-    print(std_r)
-    print(std_g)
-    print(std_b)
+    # print(std_r)
+    # print(std_g)
+    # print(std_b)
 
     return std_r <= tolerance_std and std_g <= tolerance_std and std_b <= tolerance_std
 
