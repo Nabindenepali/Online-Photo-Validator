@@ -11,7 +11,7 @@ def background_check(image):
 
     for height in range(0, h):
         for width in range(0, w):
-            if height <= 0.35 * h and (width <= 0.15 * h or width >= 0.85 * h):
+            if height <= 0.35 * h and (width <= 0.15 * w or width >= 0.85 * w):
                 r = image[height, width, 0]
                 g = image[height, width, 1]
                 b = image[height, width, 2]
