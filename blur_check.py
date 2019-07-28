@@ -3,12 +3,13 @@ import numpy as np
 
 def check_image_blurness(image):
     gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
-    return check_if_blur(gray) and check_if_pixaleted(gray)
+    return check_if_blur(gray) or check_if_pixaleted(gray)
 
 def check_if_blur(gray):
     # compute the Laplacian of the image and then return the focus
     # measure, which is simply the variance of the Laplacian
     value = cv2.Laplacian(gray, cv2.CV_64F).var()
+    print(value<188)
     return value < 188
 
 
@@ -26,6 +27,7 @@ def check_if_pixaleted(gray):
     if(lines is None):
         lines =[]
     # edited this line
+    print(lines)
 
     return lines > 5
 
