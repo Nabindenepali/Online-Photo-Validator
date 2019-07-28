@@ -26,8 +26,5 @@ def check_if_pixaleted(gray):
 
     if(lines is None):
         lines =[]
-    # edited this line
-    print(lines)
-
-    return lines > 5
+    return len(lines) > 5
 
