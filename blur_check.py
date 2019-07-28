@@ -9,7 +9,6 @@ def check_if_blur(gray):
     # compute the Laplacian of the image and then return the focus
     # measure, which is simply the variance of the Laplacian
     value = cv2.Laplacian(gray, cv2.CV_64F).var()
-    print(value<188)
     return value < 188
 
 
