@@ -5,6 +5,7 @@ import cv2
 import file_format_check
 import file_size_check
 import blur_check
+import head_check
 
 def main():
 	ap = argparse.ArgumentParser()
@@ -39,6 +40,10 @@ def main():
 	# Check image for blurness
 	is_blur = blur_check.check_image(img)
 	print("Blurness check: " + ('Passed' if not is_blur else 'Failed'))
+
+	# Check image for head position and coverage
+	is_head_valid = head_check.check_image(img)
+	print("Head check: " + ('Passed' if is_head_valid else 'Failed'))
 
 	# Display the imported image
 	cv2.imshow('Application Photo', img)
