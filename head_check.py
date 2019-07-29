@@ -1,4 +1,3 @@
-import numpy as np
 import cv2
 
 def head_percentage(image):
@@ -10,8 +9,8 @@ def head_percentage(image):
 	# Detect multiscale (some images may be closer to camera than others) images
 	faces = haar_face_cascade.detectMultiScale(gray_img, scaleFactor=1.1, minNeighbors=5);
 
-	# Return false if there are more than one faces in the picture
-	if len(faces) > 1:
+	# Return false if there's not exactly one face in the picture
+	if len(faces) != 1:
 		return False
 
 	# Get the only face data	
