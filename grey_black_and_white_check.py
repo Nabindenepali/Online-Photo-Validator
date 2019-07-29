@@ -6,9 +6,6 @@ def is_grey(img):
     for i in range(w):
         for j in range(h):
             r, g, b = img[i][j]
-            print("r",r-g)
-            print("g",g-b)
-            print("b",b-r)
-            # if r != g != b:
-            #     return False
+            if r != g != b:
+                return False
     return True
