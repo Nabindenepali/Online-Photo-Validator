@@ -1,11 +1,9 @@
 def is_grey(img):
-    print(img.size)
     w, h, channel = img.shape
-    print(w)
-    print(h)
     for i in range(w):
         for j in range(h):
             r, g, b = img[i][j]
-            if r != g != b:
+
+            if abs(int(r)-int(g)) > 26 or abs(int(r)-int(g)) > 26 or abs(int(r)-int(g)) > 26:
                 return False
     return True

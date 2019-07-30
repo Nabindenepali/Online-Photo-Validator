@@ -9,10 +9,12 @@ import head_check
 import background_check
 import grey_black_and_white_check
 import logging
+import time
 
 logging.basicConfig(level=logging.INFO)
 
 def main():
+    initialTime = time.time()
     ap = argparse.ArgumentParser()
     ap.add_argument('-d', '--directory', required=True, help='Path to directory containing images')
 
@@ -21,7 +23,7 @@ def main():
 
     directory = args['directory']
 
-    fileLists= os.listdir(directory)
+    fileLists= sorted(os.listdir(directory))
 
     error_message = {}
     for image in fileLists:
@@ -60,7 +62,7 @@ def main():
 
         # Check image for head position and coverage
 
-        if not background_check.background_check(img):
+        if not head_check.check_image(img):
             messages.append("Head check Faied")
 
         if len(messages)>0:
@@ -70,11 +72,16 @@ def main():
         # cv2.imshow('Application Photo', img)
         # cv2.waitKey(0)
         # cv2.destroyAllWindows()
+
     if(len(error_message)>0):
         print("Following are invalid images with reasons: \n")
         print(error_message)
     else:
         print("There are no invalid images")
+    finalTime = time.time()
+
+    logging.info("Total time taken to validate "
+                 + str(len(fileLists)) + " images = "+ str(finalTime-initialTime) + " seconds")
 
 if __name__ == '__main__':
     main()

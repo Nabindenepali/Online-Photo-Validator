@@ -9,10 +9,12 @@ import head_check
 import background_check
 import grey_black_and_white_check
 import logging
+import time
 
 logging.basicConfig(level=logging.INFO)
 
 def main():
+    initial = time.time()
     ap = argparse.ArgumentParser()
     ap.add_argument('-i', '--image', required=True, help='Path to image file')
 
@@ -60,6 +62,8 @@ def main():
     # cv2.imshow('Application Photo', img)
     # cv2.waitKey(0)
     # cv2.destroyAllWindows()
+    final = time.time()
+    logging.info("Total time in second = "+ str(final-initial))
 
 if __name__ == '__main__':
     main()
