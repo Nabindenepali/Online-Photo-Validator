@@ -62,8 +62,11 @@ def main():
 
         # Check image for head position and coverage
 
-        if not head_check.check_image(img):
+        if not head_check.valid_head_size(img):
             messages.append("Head check Faied")
+
+        if head_check.is_eye_covered(img):
+            messages.append("Eye checked failed")
 
         if len(messages)>0:
             error_message[image] = messages

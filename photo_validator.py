@@ -55,8 +55,12 @@ def main():
     logging.info("Background check: " + ('Passed' if is_background_ok else 'Failed'))
 
     # Check image for head position and coverage
-    is_head_valid = head_check.check_image(img)
+    is_head_valid = head_check.valid_head_size(img)
     logging.info("Head check: " + ('Passed' if is_head_valid else 'Failed'))
+
+    #Check Eye Covered
+    is_eye_covered = head_check.is_eye_covered(img)
+    logging.info("Eye check: " + ('Passed' if not is_eye_covered else 'Failed'))
 
     # Display the imported image
     # cv2.imshow('Application Photo', img)
