@@ -16,9 +16,6 @@ def background_check(image):
                 g = image[height, width, 1]
                 b = image[height, width, 2]
                 if is_black(r, g, b):
-                    print("h",height)
-                    print("w",width)
-                    print("aa")
                     return False
 
                 pixels_of_r.append(r)
