@@ -44,6 +44,11 @@ def main():
     # Load the image
     img = cv2.imread(imgPath)
 
+    is_corrupted = file_format_check.is_corrupted_image(img)
+    logging.info("File Open Test: " + ('Passed' if not is_corrupted else 'Failed'))
+    if file_format_check.is_corrupted_image(img):
+        exit()
+
     logging.info("Greyscale check: " + ('Passed' if not grey_black_and_white_check.is_grey(img) else 'Failed'))
 
     # Check image for blurness

@@ -27,6 +27,7 @@ def main():
 
     error_message = {}
     for image in fileLists:
+        #logging.info("processing Image: " + image)
 
         messages = []
 
@@ -35,7 +36,6 @@ def main():
         if not is_file_format_valid:
             messages.append("File format check failed")
             error_message[image]= messages
-
             continue
 
         is_file_size_valid = file_size_check.check_image(directory+"/"+ image)
@@ -46,6 +46,13 @@ def main():
 
         # Load the image
         img = cv2.imread(directory+"/"+ image)
+
+        #Check if corrupted image
+        if file_format_check.is_corrupted_image(img):
+            messages.append("Corrupted Image")
+            error_message[image] = messages
+            continue
+
 
         #Check for grey image
         if grey_black_and_white_check.is_grey(img):
@@ -83,6 +90,8 @@ def main():
         print("There are no invalid images")
     finalTime = time.time()
 
+    logging.info("Total Image Parsed = " + str(len(fileLists)))
+    logging.info("Total Invalid Image = " + str(len(error_message)))
     logging.info("Total time taken to validate "
                  + str(len(fileLists)) + " images = "+ str(finalTime-initialTime) + " seconds")
 
