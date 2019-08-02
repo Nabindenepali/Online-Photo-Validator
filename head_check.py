@@ -17,7 +17,7 @@ def head_percentage(image):
     head_percentage = (width*height)/(image.shape[0]*image.shape[1]) * 1.25 * 100
 
     # Image is valid if head percentage is between 30% and 50%
-    if 30 <= head_percentage <= 50:
+    if 30 <= head_percentage <= 55:
         return True
     return False
 
