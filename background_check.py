@@ -11,11 +11,14 @@ def background_check(image):
 
     for height in range(0, h):
         for width in range(0, w):
-            if height <= 0.35 * h and (width <= 0.15 * w or width >= 0.85 * w):
+            if height <= 0.35 * h and (width <= 0.14 * w or width >= 0.86 * w):
                 r = image[height, width, 0]
                 g = image[height, width, 1]
                 b = image[height, width, 2]
                 if is_black(r, g, b):
+                    print("h",height)
+                    print("w",width)
+                    print("aa")
                     return False
 
                 pixels_of_r.append(r)
@@ -27,6 +30,10 @@ def background_check(image):
     std_r = np.std(pixels_of_r)
     std_g = np.std(pixels_of_g)
     std_b = np.std(pixels_of_b)
+
+    print("stdr",std_r)
+    print("stdb",std_b)
+    print("stdg",std_g)
 
     # print(std_r)
     # print(std_g)
