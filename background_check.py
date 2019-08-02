@@ -31,9 +31,6 @@ def background_check(image):
     std_g = np.std(pixels_of_g)
     std_b = np.std(pixels_of_b)
 
-    print("stdr",std_r)
-    print("stdb",std_b)
-    print("stdg",std_g)
 
     # print(std_r)
     # print(std_g)
