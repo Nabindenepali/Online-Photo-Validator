@@ -9,7 +9,7 @@ def check_if_blur(gray):
     # compute the Laplacian of the image and then return the focus
     # measure, which is simply the variance of the Laplacian
     value = cv2.Laplacian(gray, cv2.CV_64F).var()
-    return value < 145
+    return value < 100
 
 
 def check_if_pixaleted(gray):
